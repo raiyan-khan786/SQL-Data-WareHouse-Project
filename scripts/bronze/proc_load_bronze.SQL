@@ -16,13 +16,13 @@ GO
   
 		CREATE TABLE bronze.crm_cust_info
 		(
-			cust_id INT,
-			cust_key NVARCHAR(50),
-			cust_firstname NVARCHAR(50),
-			cust_lastname NVARCHAR(50),
-			cust_material_status NVARCHAR(50),
-			cust_gender NVARCHAR(50),
-			cust_create_date DATE
+			cst_id INT,
+			cst_key NVARCHAR(50),
+			cst_firstname NVARCHAR(50),
+			cst_lastname NVARCHAR(50),
+			cst_material_status NVARCHAR(50),
+			cst_gender NVARCHAR(50),
+			cst_create_date DATE
 		);
 GO
 
