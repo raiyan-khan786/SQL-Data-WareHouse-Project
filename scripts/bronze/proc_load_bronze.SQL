@@ -1,4 +1,3 @@
-/*
 CREATE OR ALTER PROCEDURE bronze.load_bronze AS
 
 BEGIN
@@ -8,7 +7,6 @@ BEGIN
 		PRINT'========================';
 		PRINT 'LOADING BRONZE LAYER';
 		PRINT'========================';
-*/
 
 		IF OBJECT_ID ('bronze.crm_cust_info', 'U') IS NOT NULL
 			DROP TABLE bronze.crm_cust_info;
