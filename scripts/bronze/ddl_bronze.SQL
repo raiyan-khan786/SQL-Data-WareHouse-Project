@@ -1,13 +1,11 @@
 /*
-CREATE OR ALTER PROCEDURE bronze.load_bronze AS
-
-BEGIN
-	DECLARE @start_time DATETIME, @end_time DATETIME, @batch_start_time DATETIME, @batch_end_time DATETIME;
-	BEGIN TRY
-		SET @batch_start_time = GETDATE();
-		PRINT'========================';
-		PRINT 'LOADING BRONZE LAYER';
-		PRINT'========================';
+	------------------------------------------------------
+	DDL Script: Create bronze Tables
+	------------------------------------------------------
+	Script Purpose:
+		This script creates table in 'bronze' schema, dropping existing tables
+		if they already exist.
+		Run this script to re-define DDL structure of 'bronze' tables
 */
 
 		IF OBJECT_ID ('bronze.crm_cust_info', 'U') IS NOT NULL
@@ -209,24 +207,4 @@ GO
 			ROWTERMINATOR = '\n',
 			TABLOCK
 		);
-    SET @end_time = GETDATE();
-		PRINT 'Load Duration: ' + CAST(DATEDIFF (second,@start_time,@end_time) AS NVARCHAR) + ' seconds';
-		PRINT '-----------';
-GO
-		SET @batch_end_time = GETDATE();
-	
-		PRINT '=========================================';
-		PRINT '>>> Loading Bronze Layer is completed: ';
-		PRINT '>>> Load Batch Duration: ' + CAST(DATEDIFF(SECOND, @batch_start_time, @batch_end_time) AS NVARCHAR) + 'seconds';
-		PRINT '=========================================';
-	END TRY
 
-	BEGIN CATCH
-		PRINT '======================================================';
-		PRINT 'ERROR OCCURED DURING LOADING BRONZE LAYER'
-		PRINT 'Error Message: ' + ERROR_MESSAGE();
-		PRINT 'Error Message: ' + CAST(ERROR_NUMBER() AS NVARCHAR);
-		PRINT 'Error Message: ' + CAST(ERROR_STATE() AS NVARCHAR);
-		PRINT '======================================================';
-	END CATCH
-END
