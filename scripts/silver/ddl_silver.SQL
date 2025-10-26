@@ -1,18 +1,14 @@
 /*
 	-----------------------------------------------------------------
-	DDL Script: Create Siver Tables 
+	DDL Script: Create siver tables 
 	-----------------------------------------------------------------
-	
+	Script Purpose:
+		This script creates a table in the 'silver' schema, dropping existing tables
+		if they already exists
+			Run this script to redefine the DDl structure of 'silver' tables 
+
+	================================================================================
 */
-
-
-
-
-
-
-
-
-
 
 IF OBJECT_ID ('silver.crm_cust_info', 'U') IS NOT NULL
 	DROP TABLE silver.crm_cust_info;
